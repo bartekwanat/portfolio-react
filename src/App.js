@@ -1,24 +1,25 @@
-import logo from './logo.svg';
+
 import './App.css';
+import CustomCursor from "./assets/helpers/CustomCursor/CustomCursor";
+import {WelcomePage} from "./components/organisms/WelcomePage/WelcomePage";
+import {AboutMe} from "./components/organisms/AboutMe/AboutMe";
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import {Portfolio} from "./components/organisms/Porfolio/Portfolio";
+import {Contact} from "./components/organisms/Contact/Contact";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+          <div>
+              <CustomCursor/>
+              <Routes>
+                  <Route path="/"  element={<WelcomePage />} />
+                  <Route path="/about"  element={<AboutMe />} />
+                  <Route path="/portfolio"  element={<Portfolio />} />
+                  <Route path="/contact"  element={<Contact />} />
+              </Routes>
+          </div>
+      </Router>
   );
 }
 
